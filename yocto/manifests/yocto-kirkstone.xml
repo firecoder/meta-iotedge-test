@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <default revision="master" sync-j="16"/>
+  <remote fetch="https://git.yoctoproject.org" name="yocto"/>
+  <remote fetch="https://git.openembedded.org" name="oeorg"/>
+
+  <!-- for chromium browser -->
+  <remote fetch="https://github.com/kraj" name="kraj"/>
+  <remote fetch="https://github.com/OSSystems" name="ossystems"/>
+
+
+  <project remote="yocto" revision="kirkstone" name="poky" path="sources/poky"/>
+  <project remote="oeorg" revision="kirkstone" name="openembedded-core" path="sources/openembedded-core"/>
+  <project remote="oeorg" revision="kirkstone" name="meta-openembedded" path="sources/meta-openembedded"/>
+
+  <!-- for chromium browser -->
+  <project remote="kraj" revision="kirkstone" name="meta-clang" path="sources/meta-clang"/>
+  <project remote="ossystems" revision="master" name="meta-browser" path="sources/meta-browser"/>
+</manifest>
