@@ -13,6 +13,9 @@
   <project remote="oeorg" revision="kirkstone" name="openembedded-core" path="sources/openembedded-core"/>
   <project remote="oeorg" revision="kirkstone" name="meta-openembedded" path="sources/meta-openembedded"/>
 
+  <!-- for Intel CPU -->
+  <project remote="yocto" revision="kirkstone" name="meta-intel" path="sources/meta-intel"/>
+
   <!-- for chromium browser -->
   <project remote="kraj" revision="kirkstone" name="meta-clang" path="sources/meta-clang"/>
   <project remote="ossystems" revision="master" name="meta-browser" path="sources/meta-browser"/>
