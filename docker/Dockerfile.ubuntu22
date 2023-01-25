@@ -1,0 +1,52 @@
+FROM amd64/ubuntu:22.04
+ENV container docker
+
+LABEL version="1.0"
+LABEL maintainer="nr@firecoder.com"
+LABEL description="This container is used for testing the build of Chromium for Yocto."
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN useradd -m yocto
+RUN mkdir -p /yocto-build
+RUN chown -R yocto:yocto /yocto-build
+
+COPY init-yocto-build.sh /yocto-build/init-yocto-build.sh
+RUN chmod u+x /yocto-build/init-yocto-build.sh; chown yocto:yocto /yocto-build/init-yocto-build.sh
+
+# use most recent packages
+RUN apt-get -y update
+RUN apt-get -y install aptitude
+RUN DEBIAN_FRONTEND=noninteractive aptitude -y full-upgrade
+
+# provide information for other packages
+RUN apt install -y lsb-release software-properties-common gnupg
+
+# install some pckages needed for the build
+RUN DEBIAN_FRONTEND=noninteractive apt -y install \
+     gawk wget git diffstat unzip texinfo gcc-multilib \
+     build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
+     xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
+     pylint xterm python3-subunit mesa-common-dev zstd liblz4-tool \
+     g++-multilib ninja-build gperf bison \
+     make xsltproc docbook-utils fop dblatex xmlto \
+     tar curl joe locales sudo libncurses5-dev libtinfo-dev flex screen bison
+
+
+# this seems to be needed for Chromium build as the linker sets the dynamic
+# library loader to the path of the target machine but this path differs
+# from the path of the build machine.
+RUN ln -s /lib64/ld-linux-x86-64.so.2 /lib/ld-linux-x86-64.so.2 
+
+# provide Python3 command
+RUN ln -s python3 /usr/bin/python
+
+# setup locales
+RUN locale-gen en_US.UTF-8
+RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+
+# the default user for the container os the build user
+USER yocto
+
+WORKDIR /yocto-build
