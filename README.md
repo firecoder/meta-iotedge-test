@@ -3,9 +3,11 @@ Test of Yocto build of Chromium from repository [meta-browser](https://github.co
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-There seem to be some issues with building Chromium fro Yocto from the repository
-[meta-browser](https://github.com/OSSystems/meta-browser). To help investigate the issues, this simple
-test project is used.
+If you have some issues with building Chromium/Firefox for Yocto from the repository
+[meta-browser](https://github.com/OSSystems/meta-browser), this project will help
+to investigate these issues. Some of your issues might be caused by special
+settings of your project. So, only a bare minimum configuration is used to stay
+as close to default Yocto settings as possible.
 
 
 
