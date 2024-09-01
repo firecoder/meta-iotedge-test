@@ -4,9 +4,8 @@
   <remote fetch="https://git.yoctoproject.org" name="yocto"/>
   <remote fetch="https://git.openembedded.org" name="oeorg"/>
 
-  <!-- for chromium browser -->
-  <remote fetch="https://github.com/kraj" name="kraj"/>
-  <remote fetch="https://github.com/OSSystems" name="ossystems"/>
+  <!-- for Azure IoT Edge  -->
+  <remote fetch="https://github.com/Azure" name="azure"/>
 
 
   <project remote="yocto" revision="kirkstone" name="poky" path="sources/poky"/>
@@ -16,7 +15,6 @@
   <!-- for Intel CPU -->
   <project remote="yocto" revision="kirkstone" name="meta-intel" path="sources/meta-intel"/>
 
-  <!-- for chromium browser -->
-  <project remote="kraj" revision="kirkstone" name="meta-clang" path="sources/meta-clang"/>
-  <project remote="ossystems" revision="master" name="meta-browser" path="sources/meta-browser"/>
+  <!-- for Azure IoT test -->
+  <project remote="azure" revision="kirkstone" name="meta-iotedge" path="sources/meta-iotedge"/>
 </manifest>

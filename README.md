@@ -1,14 +1,13 @@
-Test of Yocto build of Chromium from repository [meta-browser](https://github.com/OSSystems/meta-browser)
+Test of Yocto build of Azure IoT Edge from repository[meta-iotedge](https://github.com/Azure/meta-iotedge)
 =========================================================================================================
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-If you have some issues with building Chromium/Firefox for Yocto from the repository
-[meta-browser](https://github.com/OSSystems/meta-browser), this project will help
+If you have some issues with building Azure IoT Edge for Yocto from the repository
+[meta-iotedge](https://github.com/Azure/meta-iotedge), this project will help
 to investigate these issues. Some of your issues might be caused by special
 settings of your project. So, only a bare minimum configuration is used to stay
 as close to default Yocto settings as possible.
-
 
 
 
@@ -26,7 +25,7 @@ Usage
 1. **Build the docker image**.  ([`Dockerfile.ubuntu22`](./docker/Dockerfile.ubuntu22))
 
     ```sh
-    docker build -f docker/Dockerfile.ubuntu22 -t local/yocto-meta-browser-test:latest  docker/
+    docker build -f docker/Dockerfile.ubuntu22 -t local/yocto-meta-iotedge-test:latest  docker/
     ```
 2. **Run the container**.  
     The container does not run any command automatically as this would prevent investigation and
@@ -47,12 +46,12 @@ Usage
     2. Fetch the Yocto sources involved.
     3. Create a local yocto configuration.
     4. Add the layers to the build.
-4. **Build the Chromium browser and see what happens**. 
+4. **Build the Azure IoT Edge packages and see what happens**. 
  
     ```sh
     cd /yocto-build
     source ./sources/poky/oe-init-build-env build
-    bitbake chromium-ozone-wayland
+    bitbake aziot-edged
     ```
 
 

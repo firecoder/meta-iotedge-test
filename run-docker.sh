@@ -39,4 +39,4 @@ fi
 exec $PODMAN run \
     -it \
     -v "$SCRIPTPATH":/yocto-build/local-git-repo \
-    local/yocto-meta-browser-test:latest
+    local/yocto-meta-iotedge-test:latest

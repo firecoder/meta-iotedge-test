@@ -57,7 +57,7 @@ for layer in \
     meta-clang \
     meta-intel \
     meta-openembedded/meta-oe \
-    meta-browser/meta-chromium \
+    meta-iotedge \
 ; do
     bitbake-layers add-layer ../sources/$layer
 done
