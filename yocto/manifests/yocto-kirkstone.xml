@@ -3,6 +3,7 @@
   <default revision="master" sync-j="16"/>
   <remote fetch="https://git.yoctoproject.org" name="yocto"/>
   <remote fetch="https://git.openembedded.org" name="oeorg"/>
+  <remote fetch="https://github.com/kraj" name="kraj"/>
 
   <!-- for Azure IoT Edge  -->
   <remote fetch="https://github.com/Azure" name="azure"/>
@@ -16,5 +17,11 @@
   <project remote="yocto" revision="kirkstone" name="meta-intel" path="sources/meta-intel"/>
 
   <!-- for Azure IoT test -->
+  <project remote="yocto" revision="kirkstone" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="azure" revision="kirkstone" name="meta-iotedge" path="sources/meta-iotedge"/>
+
+  <!-- hidden dependencies of Azure IoT -->
+  <project remote="kraj" revision="kirkstone" name="meta-clang" path="sources/meta-clang"/>
+  <project remote="yocto" revision="kirkstone" name="meta-security" path="sources/meta-security"/>
+  
 </manifest>

@@ -57,6 +57,14 @@ for layer in \
     meta-clang \
     meta-intel \
     meta-openembedded/meta-oe \
+    meta-openembedded/meta-filesystems \
+    meta-openembedded/meta-networking \
+    meta-openembedded/meta-python \
+    meta-openembedded/meta-perl \
+    meta-virtualization \
+    meta-security \
+    meta-security/meta-tpm \
+    meta-clang \
     meta-iotedge \
 ; do
     bitbake-layers add-layer ../sources/$layer
