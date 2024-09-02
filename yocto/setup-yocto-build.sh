@@ -71,3 +71,6 @@ for layer in \
 done
 
 
+# add custom layer
+bitbake-layers add-layer ../local-git-repo/custom-layers/meta-iotedge-custom/
+
